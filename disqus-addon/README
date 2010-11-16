@@ -1,0 +1,23 @@
+/* ----------------------- */
+Disqus-Addon Instrument
+
+Finish installation by adding this to your config/boot.php
+
+require(LIB.'addons/disqus.php');
+
+than add this to your lib/framework/views.php inside the render() method
+
+$disqus = New Disqus(array(
+  'id' => 'disqus',
+	'site' => 'disqus-sitename',
+	'developer' => 1, // 1 for development 0 for production
+	'show_tags' => false // If you want there to be a link back to Disqus
+));
+
+enter this in your .html.orc where you want the comments
+
+<?= $disqus->comments(); ?>
+
+Last enter this right before the </body>
+
+<?= $disqus->scripts(); ?>
